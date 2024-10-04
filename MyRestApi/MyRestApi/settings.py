@@ -29,11 +29,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'rest_framework_simplejwt',
     'BurgerApi',
 ]
 
 MIDDLEWARE = [
+    #  For django-cors-headers
     "corsheaders.middleware.CorsMiddleware",
+    # Default
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -42,8 +45,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+#  For django-cors-headers
 CORS_ORIGIN_ALLOW_ALL=True
+
+# For Simple JWT
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )  
+}
+
+
+
 ROOT_URLCONF = 'MyRestApi.urls'
 
 TEMPLATES = [

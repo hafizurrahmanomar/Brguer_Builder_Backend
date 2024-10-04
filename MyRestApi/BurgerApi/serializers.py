@@ -14,7 +14,7 @@ class UserProfileSerializer(ModelSerializer):
             'password': {'write_only': True,'style':{
                 'input_type': 'password',
                 'placeholder': 'Password'}},
-            'email': {'required': True},
+            # 'email': {'required': True},
         }
         
         def create(self,validate_data):

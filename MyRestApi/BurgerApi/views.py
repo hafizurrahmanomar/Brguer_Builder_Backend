@@ -1,8 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
+
+from BurgerApi.models import UserProfile
 from BurgerApi.serializers import UserProfileSerializer
-from MyRestApi.BurgerApi.models import UserProfile
 
 # Create your views here.
+
 
 class UserProfileViewSet(ModelViewSet):
     serializer_class = UserProfileSerializer
