@@ -3,7 +3,6 @@ from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser, PermissionsMixin, BaseUserManager)
 
-from BurgerApi.serializers import CustomerDetails
 
 # Create your models here.
 
@@ -37,11 +36,16 @@ class UserProfile(AbstractBaseUser,PermissionsMixin):
     
     def __str__(self):
         return self.email
-    
+
 class Ingredient(models.Model):
-    fiesh =models.CharField(max_length=50)
-    tomato =models.CharField(max_length=50)
-    salad =models.CharField(max_length=50)
+    salad = models.IntegerField(default=0)
+    cheese = models.IntegerField(default=0)
+    meat = models.IntegerField(default=0)
+    
+class CustomerDetails(models.Model):
+    deleveryAddress =models.TextField(blank=True)
+    phone = models.CharField(max_length=255,blank=True)
+    paymentType =models.CharField(max_length=20,blank=True)
 
 class Order(models.Model):
     user =models.ForeignKey(UserProfile,on_delete=models.CASCADE)

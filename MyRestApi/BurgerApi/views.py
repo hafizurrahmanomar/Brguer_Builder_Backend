@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 
-from BurgerApi.models import UserProfile
+from BurgerApi.models import UserProfile, Order
 from BurgerApi.serializers import UserProfileSerializer, OrderSerializer
 
 # Create your views here.

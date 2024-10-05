@@ -9,11 +9,11 @@ from rest_framework.routers import DefaultRouter
 from BurgerApi.views import UserProfileViewSet, OrderViewSet
 
 
-router = DefaultRouter()  # Create a router object
+router = DefaultRouter()  
 
 # Register our viewset with the router
-router.register(r'user', UserProfileViewSet)  # Endpoint: /user_profile/
-router.register(r'order', OrderViewSet)  # Endpoint: /user_profile/
+router.register(r'user', UserProfileViewSet)  
+router.register(r'order', OrderViewSet,basename="order")  
 
 urlpatterns = [
     # forJWT=> Jason Web Token
