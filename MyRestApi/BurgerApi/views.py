@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
 from BurgerApi.models import UserProfile
-from BurgerApi.serializers import UserProfileSerializer
+from BurgerApi.serializers import UserProfileSerializer, OrderSerializer
 
 # Create your views here.
 
@@ -9,3 +9,8 @@ from BurgerApi.serializers import UserProfileSerializer
 class UserProfileViewSet(ModelViewSet):
     serializer_class = UserProfileSerializer
     queryset = UserProfile.objects.all()
+
+class OrderViewSet(ModelViewSet):
+    serializer_class = OrderSerializer
+    queryset =Order.objects.all()
+   

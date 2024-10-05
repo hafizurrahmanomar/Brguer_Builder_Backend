@@ -3,7 +3,7 @@
 
 from rest_framework.serializers import ModelSerializer
 
-from BurgerApi.models import UserProfile
+from BurgerApi.models import UserProfile,Order,Ingredient,CustomerDetails
 
 class UserProfileSerializer(ModelSerializer):
     class Meta:
@@ -23,3 +23,21 @@ class UserProfileSerializer(ModelSerializer):
                 password=validate_data['password'],
                 )
             return user
+        
+        
+class IngredientSerializer(ModelSerializer):
+    class Meta:
+        model =Ingredient
+        fields ="__all__"
+
+class CustomerDetailsSerializer(ModelSerializer):
+    class Meta:
+        model = CustomerDetails
+        
+        
+class OrderSerializer(ModelSerializer):
+    ingredients =IngredientSerializer()
+    customer = CustomerDetailsSerializer()
+    class Meta:
+        model=Order
+        fields = "__all__"
