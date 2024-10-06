@@ -1,5 +1,4 @@
 
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,9 +28,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'rest_framework_simplejwt',
     'BurgerApi',
 ]
+# For Simple JWT
+REST_FRAMEWORK = {
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+    
+}
+
+
 
 MIDDLEWARE = [
     #  For django-cors-headers
@@ -47,14 +56,6 @@ MIDDLEWARE = [
 ]
 #  For django-cors-headers
 CORS_ORIGIN_ALLOW_ALL=True
-
-# For Simple JWT
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES':(
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )  
-}
-
 
 
 ROOT_URLCONF = 'MyRestApi.urls'
